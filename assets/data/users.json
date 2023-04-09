@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "name": "John",
+    "mobile": "1234567890",
+    "email": "",
+    "address": "123, abc street, xyz city, 123456",
+    "avatar": "https://images.unsplash.com/photo-1669642455249-1a04f72d5fff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+  },
+  {
+    "id": "2",
+    "name": "Jane",
+    "mobile": "1234567890",
+    "email": "",
+    "address": "123, abc street, xyz city, 123456",
+    "avatar": "https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "Home Cleaning",
+    "icon": "https://drive.google.com/uc?export=view&id=1rM95ab_NiFXp9Ek8X4Q0fUYSMu7B5QWf"
+  },
+  {
+    "id": "2",
+    "name": "Repairing",
+    "icon": "https://drive.google.com/uc?export=view&id=1y341_wxmONn0YE5PtBNSfM6-tHUgIY0E"
+  },
+  {
+    "id": "3",
+    "name": "Plumbing",
+    "icon": "https://drive.google.com/uc?export=view&id=1Fd30CaPc-p4JA1pJWg7CW-58UDj7GN_3"
+  },
+  {
+    "id": "4",
+    "name": "Electrical",
+    "icon": "https://drive.google.com/uc?export=view&id=1VIZ25GHzfvy8hTpiFw3WNYnk-7WHVaZo"
+  },
+  {
+    "id": "5",
+    "name": "Painting",
+    "icon": "https://drive.google.com/uc?export=view&id=1c0Qkqr0fRkIQOktpkQ4_tHVXNBA46eNH"
+  },
+  {
+    "id": "6",
+    "name": "Pest Control",
+    "icon": "https://drive.google.com/uc?export=view&id=1I9_XFMD3quA7edVPVaR-rRqvg-nkSM2f"
+  },
+  {
+    "id": "7",
+    "name": "Gardening",
+    "icon": "https://drive.google.com/uc?export=view&id=1w8_RQ5lLujx-pAryCsi6JfYOyH4h8qaj"
+  },
+  {
+    "id": "8",
+    "name": "Car Wash",
+    "icon": "https://drive.google.com/uc?export=view&id=1IxPRBeWvMLB1jaysK0mFwFfzRqdRz3d9"
+  },
+  {
+    "id": "9",
+    "name": "More",
+    "icon": "https://drive.google.com/uc?export=view&id=1kiedKSJZNEmqm7bu6UVGa30b_BdS8CFR"
+  }
+]
