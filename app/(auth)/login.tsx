@@ -14,8 +14,8 @@ import useAuth from "../../hooks/useAuth";
 const Login = () => {
   const mode = useMode();
 
-  const [email, setEmail] = React.useState("kritikjiyaviya07@gmail.com");
-  const [password, setPassword] = React.useState("Kritik@1121");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   const toggleShowPassword = () => {
