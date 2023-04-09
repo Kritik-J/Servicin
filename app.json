@@ -22,11 +22,18 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kritik_j.Servicin"
     },
     "web": {
       "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e41fee7b-1c71-4e89-b52d-2ce3d92e1e8e"
+      }
+    },
+    "owner": "kritik_j"
   }
 }
