@@ -83,7 +83,7 @@ const Header = () => {
         onPress={() => router.back()}
       />
 
-      <Typography variant='h3' style={{ marginLeft: 10 }}>
+      <Typography variant='h3' style={{ marginLeft: 10, color: "white" }}>
         {chat?.user.name}
       </Typography>
     </View>
