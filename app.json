@@ -34,6 +34,12 @@
         "projectId": "e41fee7b-1c71-4e89-b52d-2ce3d92e1e8e"
       }
     },
-    "owner": "kritik_j"
+    "owner": "kritik_j",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e41fee7b-1c71-4e89-b52d-2ce3d92e1e8e"
+    }
   }
 }

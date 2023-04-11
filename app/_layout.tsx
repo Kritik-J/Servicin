@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { setIsAuth, setUser } from "../redux/authSlice";
 import useAuth from "../hooks/useAuth";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -37,9 +38,11 @@ export default function RootLayout() {
 
   return (
     <Provider store={store}>
-      {/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
-      {!loaded && <SplashScreen />}
-      {loaded && <RootLayoutNav />}
+      <SafeAreaProvider>
+        {/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
+        {!loaded && <SplashScreen />}
+        {loaded && <RootLayoutNav />}
+      </SafeAreaProvider>
     </Provider>
   );
 }
