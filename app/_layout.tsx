@@ -1,6 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { SplashScreen, Stack, useRouter } from "expo-router";
+import { SplashScreen, Stack, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { Provider } from "react-redux";
@@ -14,6 +14,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { setIsAuth, setUser } from "../redux/authSlice";
 import useAuth from "../hooks/useAuth";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import "react-native-gesture-handler";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -39,7 +40,6 @@ export default function RootLayout() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        {/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
         {!loaded && <SplashScreen />}
         {loaded && <RootLayoutNav />}
       </SafeAreaProvider>
@@ -52,6 +52,7 @@ function RootLayoutNav() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const { isAuth } = useAuth();
+  const segments = useSegments();
 
   useEffect(() => {
     if (colorScheme === "dark") {
@@ -76,15 +77,15 @@ function RootLayoutNav() {
     return unsubscribe;
   }, []);
 
-  useEffect(() => {
-    if (isAuth) {
-      router.replace("/");
-    } else {
-      router.replace("/login");
-    }
-  }, [isAuth]);
+  const inAuthGroup = segments[0] === "(auth)";
 
-  // console.log("isAuth", isAuth);
+  useEffect(() => {
+    if (!isAuth && !inAuthGroup) {
+      router.replace("(auth)");
+    } else if (isAuth && inAuthGroup) {
+      router.replace("(home)");
+    }
+  }, [isAuth, segments]);
 
   return (
     <>
@@ -93,10 +94,8 @@ function RootLayoutNav() {
           animation: "none",
         }}
       >
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-        <Stack.Screen name='services/[slug]' options={{ headerShown: false }} />
-        <Stack.Screen name='chats/[slug]' options={{ headerShown: false }} />
+        <Stack.Screen name="(home)" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
       </Stack>
     </>

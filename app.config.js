@@ -11,19 +11,21 @@ const firebaseMessagingSenderId = process.env.FIREBASE_MESSAGING_SENDER_ID;
 const firebaseAppId = process.env.FIREBASE_APP_ID;
 const firebaseMeasurementId = process.env.FIREBASE_MEASUREMENT_ID;
 
-export default {
-  name: "Servicin",
-  slug: "Servicin",
-  scheme: "servicin",
+export default ({ config }) => {
+  return Object.assign(config, {
+    extra: {
+      firebaseApiKey,
+      firebaseAuthDomain,
+      firebaseDatabaseURL,
+      firebaseProjectId,
+      firebaseStorageBucket,
+      firebaseMessagingSenderId,
+      firebaseAppId,
+      firebaseMeasurementId,
 
-  extra: {
-    firebaseApiKey,
-    firebaseAuthDomain,
-    firebaseDatabaseURL,
-    firebaseProjectId,
-    firebaseStorageBucket,
-    firebaseMessagingSenderId,
-    firebaseAppId,
-    firebaseMeasurementId,
-  },
+      eas: {
+        projectId: "8d245436-4515-4c5b-b2a4-15a9d91d1c05",
+      },
+    },
+  });
 };

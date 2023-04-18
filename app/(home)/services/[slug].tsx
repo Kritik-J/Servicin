@@ -6,13 +6,13 @@ import {
   StatusBar as RNStatusBar,
 } from "react-native";
 import React from "react";
-import useMode from "../../hooks/useMode";
-import themes from "../../constants/themes";
-import Typography from "../../components/Typography";
+import useMode from "../../../hooks/useMode";
+import themes from "../../../constants/themes";
+import Typography from "../../../components/Typography";
 import { useRouter, useSearchParams } from "expo-router";
-import services from "../../assets/data/services.json";
+import services from "../../../assets/data/services.json";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
-import { IService } from "../../types";
+import { IService } from "../../../types";
 
 const Service = () => {
   const mode = useMode();
@@ -37,7 +37,7 @@ const Service = () => {
         <Image source={{ uri: service.thumbnail }} style={styles.thumbnail} />
 
         <AntDesign
-          name='arrowleft'
+          name="arrowleft"
           size={24}
           style={styles.backButton}
           onPress={goBack}
@@ -46,15 +46,15 @@ const Service = () => {
 
       <ScrollView>
         <View style={{ padding: 10 }}>
-          <Typography variant='h2'>{service.name}</Typography>
+          <Typography variant="h2">{service.name}</Typography>
 
           <View style={{ height: 15 }} />
 
-          <Typography variant='h4'>{service.description}</Typography>
+          <Typography variant="h4">{service.description}</Typography>
 
           <View style={{ height: 10 }} />
 
-          <Typography variant='body1'>
+          <Typography variant="body1">
             {service.categories.name} &bull; {service.distance} km away &bull;
             starting from ${service.startingPrice}
           </Typography>
@@ -63,14 +63,14 @@ const Service = () => {
 
           <View style={styles.addressContainer}>
             <EvilIcons
-              name='location'
+              name="location"
               size={20}
               style={{
                 color: themes[mode].colors.iconColor,
               }}
             />
 
-            <Typography variant='body1'>{service.address}</Typography>
+            <Typography variant="body1">{service.address}</Typography>
           </View>
         </View>
 
@@ -112,12 +112,12 @@ const Options = () => {
         ]}
       >
         <AntDesign
-          name='phone'
+          name="phone"
           size={16}
           color={themes[mode].colors.iconColor}
         />
 
-        <Typography variant='body2' style={styles.contactButtonText}>
+        <Typography variant="body2" style={styles.contactButtonText}>
           phone
         </Typography>
       </View>
@@ -129,12 +129,12 @@ const Options = () => {
         ]}
       >
         <AntDesign
-          name='message1'
+          name="message1"
           size={16}
           color={themes[mode].colors.iconColor}
         />
 
-        <Typography variant='body2' style={styles.contactButtonText}>
+        <Typography variant="body2" style={styles.contactButtonText}>
           message
         </Typography>
       </View>
@@ -146,12 +146,12 @@ const Options = () => {
         ]}
       >
         <AntDesign
-          name='mail'
+          name="mail"
           size={16}
           color={themes[mode].colors.iconColor}
         />
 
-        <Typography variant='body2' style={styles.contactButtonText}>
+        <Typography variant="body2" style={styles.contactButtonText}>
           mail
         </Typography>
       </View>
@@ -163,12 +163,12 @@ const Options = () => {
         ]}
       >
         <AntDesign
-          name='sharealt'
+          name="sharealt"
           size={16}
           color={themes[mode].colors.iconColor}
         />
 
-        <Typography variant='body2' style={styles.contactButtonText}>
+        <Typography variant="body2" style={styles.contactButtonText}>
           share
         </Typography>
       </View>
@@ -180,12 +180,12 @@ const Options = () => {
         ]}
       >
         <AntDesign
-          name='hearto'
+          name="hearto"
           size={16}
           color={themes[mode].colors.iconColor}
         />
 
-        <Typography variant='body2' style={styles.contactButtonText}>
+        <Typography variant="body2" style={styles.contactButtonText}>
           save
         </Typography>
       </View>

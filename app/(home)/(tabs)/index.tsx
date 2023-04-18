@@ -1,10 +1,10 @@
 import { ScrollView, View, StyleSheet, FlatList } from "react-native";
-import themes from "../../constants/themes";
-import useMode from "../../hooks/useMode";
-import Typography from "../../components/Typography";
-import CategoriesList from "../../components/CategoriesList";
-import ServiceListItem from "../../components/ServiceListItem";
-import services from "../../assets/data/services.json";
+import themes from "../../../constants/themes";
+import useMode from "../../../hooks/useMode";
+import Typography from "../../../components/Typography";
+import CategoriesList from "../../../components/CategoriesList";
+import ServiceListItem from "../../../components/ServiceListItem";
+import services from "../../../assets/data/services.json";
 
 export default function Home() {
   const mode = useMode();
@@ -21,7 +21,7 @@ export default function Home() {
       <View style={{ height: 10 }} />
 
       <Typography
-        variant='h3'
+        variant="h3"
         style={{ paddingHorizontal: 10, color: themes[mode].colors.highlight }}
       >
         Categories
@@ -36,7 +36,7 @@ export default function Home() {
       <View style={{ height: 10 }} />
 
       <Typography
-        variant='h3'
+        variant="h3"
         style={{ paddingHorizontal: 10, color: themes[mode].colors.highlight }}
       >
         Top Services
@@ -49,7 +49,7 @@ export default function Home() {
       <View style={{ height: 10 }} />
 
       <Typography
-        variant='h3'
+        variant="h3"
         style={{ paddingHorizontal: 10, color: themes[mode].colors.highlight }}
       >
         Recommended Services

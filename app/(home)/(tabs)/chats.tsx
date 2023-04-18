@@ -1,9 +1,9 @@
 import { StyleSheet, View, FlatList } from "react-native";
 import React from "react";
-import useMode from "../../hooks/useMode";
-import themes from "../../constants/themes";
-import ChatListItem from "../../components/ChatListItem";
-import chats from "../../assets/data/chats.json";
+import useMode from "../../../hooks/useMode";
+import themes from "../../../constants/themes";
+import ChatListItem from "../../../components/ChatListItem";
+import chats from "../../../assets/data/chats.json";
 
 const Chats = () => {
   const mode = useMode();

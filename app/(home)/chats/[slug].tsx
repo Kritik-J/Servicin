@@ -7,13 +7,13 @@ import {
   TextInput,
 } from "react-native";
 import React from "react";
-import themes from "../../constants/themes";
-import useMode from "../../hooks/useMode";
-import Typography from "../../components/Typography";
-import messages from "../../assets/data/messages.json";
+import themes from "../../../constants/themes";
+import useMode from "../../../hooks/useMode";
+import Typography from "../../../components/Typography";
+import messages from "../../../assets/data/messages.json";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { useRouter, useSearchParams } from "expo-router";
-import chats from "../../assets/data/chats.json";
+import chats from "../../../assets/data/chats.json";
 
 const Chat = () => {
   const mode = useMode();
@@ -28,9 +28,11 @@ const Chat = () => {
       <Header />
 
       <ImageBackground
-        source={{
-          uri: "https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png",
-        }}
+        source={
+          mode === "light"
+            ? require("../../../assets/images/wa_chat_light.jpg")
+            : require("../../../assets/images/wa_chat_dark.jpg")
+        }
         style={styles.image}
       >
         <FlatList
@@ -51,13 +53,13 @@ const Chat = () => {
                 },
               ]}
             >
-              <Typography variant='body1'>{item.text}</Typography>
+              <Typography variant="body1">{item.text}</Typography>
             </View>
           )}
         />
-      </ImageBackground>
 
-      <InputBox />
+        <InputBox />
+      </ImageBackground>
     </View>
   );
 };
@@ -77,13 +79,13 @@ const Header = () => {
       ]}
     >
       <AntDesign
-        name='arrowleft'
+        name="arrowleft"
         size={24}
-        color='white'
+        color="white"
         onPress={() => router.back()}
       />
 
-      <Typography variant='h3' style={{ marginLeft: 10, color: "white" }}>
+      <Typography variant="h3" style={{ marginLeft: 10, color: "white" }}>
         {chat?.user.name}
       </Typography>
     </View>
@@ -92,28 +94,21 @@ const Header = () => {
 
 const InputBox = () => {
   return (
-    <View
-      style={[
-        styles.inputBox,
-        {
-          backgroundColor: themes[useMode()].colors.bottomTabBar,
-        },
-      ]}
-    >
+    <View style={[styles.inputBox]}>
       <TextInput
         style={[
           styles.input,
           {
-            borderColor: themes[useMode()].colors.textInputBorderColor,
+            backgroundColor: themes[useMode()].colors.bottomTabBar,
             color: themes[useMode()].colors.textInputFontColor,
           },
         ]}
         placeholderTextColor={themes[useMode()].colors.textInputFontColor}
-        placeholder='Type a message'
+        placeholder="Type a message"
       />
 
       <MaterialIcons
-        name='send'
+        name="send"
         style={[
           styles.sendIcon,
           {
@@ -156,9 +151,11 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
+    width: "100%",
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
+    backgroundColor: "transparent",
   },
 
   input: {
@@ -167,7 +164,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 25,
     marginRight: 10,
-    borderWidth: 1,
+    borderWidth: 0.5,
+    borderColor: "grey",
   },
 
   sendIcon: {

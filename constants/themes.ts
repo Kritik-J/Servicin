@@ -18,7 +18,7 @@ export const LIGHT_BOTTOM_SHEET_INDICATOR_COLOR = "#000000";
 export const LIGHT_CATEGORY_BACKGROUND_COLOR = "#f5f5f5";
 export const LIGHT_CHAT_LiST_ITEM_RIPPLE = "rgba(0, 0, 0, 0.1)";
 export const LIGHT_LINE_COLOR = "#e0e0e0";
-export const LIGHT_MESSAGE_BACKGROUND_COLOR = "#f5f5f5";
+export const LIGHT_MESSAGE_BACKGROUND_COLOR = "#eaeaea";
 export const LIGHT_MY_MESSAGE_BACKGROUND_COLOR = "#ffa73c";
 
 export const DARK_BACKGROUND = "#000000";
@@ -38,7 +38,7 @@ export const DARK_BOTTOM_SHEET_INDICATOR_COLOR = "#ffffff";
 export const DARK_CATEGORY_BACKGROUND_COLOR = "#171717";
 export const DARK_CHAT_LiST_ITEM_RIPPLE = "rgba(255, 255, 255, 0.1)";
 export const DARK_LINE_COLOR = "#212121";
-export const DARK_MESSAGE_BACKGROUND_COLOR = "#171717";
+export const DARK_MESSAGE_BACKGROUND_COLOR = "#272727";
 export const DARK_MY_MESSAGE_BACKGROUND_COLOR = "#ffa73c";
 
 export const ERROR_COLOR = "#f3405e";
