@@ -7,12 +7,12 @@ export default function TabLayout() {
 
   return (
     <>
-      <StatusBar style={mode === "dark" ? "light" : "dark"} />
-
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
+      <Stack screenOptions={{ headerShown: false, animation: "none" }}>
+        <Stack.Screen name="login" />
         <Stack.Screen name="register" />
       </Stack>
+
+      <StatusBar style={mode === "dark" ? "light" : "dark"} />
     </>
   );
 }

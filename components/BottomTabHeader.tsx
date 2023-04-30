@@ -1,12 +1,15 @@
 import { StyleSheet, View, StatusBar, Image } from "react-native";
 import React from "react";
 import useMode from "../hooks/useMode";
-import { AntDesign } from "@expo/vector-icons";
-import themes from "../constants/themes";
+import themes, { DARK_MODE } from "../constants/themes";
+import { SearchIcon } from "./Svg";
 
 const BottomTabHeader = () => {
   const mode = useMode();
-  const logo = require("../assets/images/logos/servicin-dark.png");
+  const logo =
+    mode === DARK_MODE
+      ? require("../assets/images/logos/servicin-dark.png")
+      : require("../assets/images/logos/servicin-light.png");
 
   return (
     <View
@@ -14,12 +17,14 @@ const BottomTabHeader = () => {
         styles.header,
         {
           backgroundColor: themes[mode].colors.header,
+          borderBottomColor: themes[mode].colors.headerBorderColor,
+          borderBottomWidth: 1,
         },
       ]}
     >
       <Image source={logo} style={styles.headerLogo} />
 
-      <AntDesign name='search1' color='#fff' size={24} />
+      <SearchIcon width={24} height={24} fill={themes[mode].colors.iconColor} />
     </View>
   );
 };

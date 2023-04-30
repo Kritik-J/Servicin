@@ -8,8 +8,9 @@ export const LIGHT_PRIMARY_BUTTON_TEXT_COLOR = "#ffffff";
 export const LIGHT_HIGHLIGHT_COLOR = "#ffa73c";
 export const LIGHT_TEXT_INPUT_BORDER_COLOR = "#000000";
 export const LIGHT_TEXT_INPUT_FONT_COLOR = "#000000";
-export const LIGHT_HEADER_COLOR = "#213a61";
-export const LIGHT_BOTTOM_TAB_BAR_COLOR = "#f5f5f5";
+export const LIGHT_HEADER_COLOR = "#ffffff";
+export const LIGHT_HEADER_BORDER_COLOR = "rgb(207, 217, 222)";
+export const LIGHT_BOTTOM_TAB_BAR_COLOR = "#ffffff";
 export const LIGHT_BOTTOM_TAB_BAR_ACTIVE_COLOR = "#ffa73c";
 export const LIGHT_BOTTOM_TAB_BAR_INACTIVE_COLOR = "#000000";
 export const LIGHT_ICON_COLOR = "#000000";
@@ -18,7 +19,7 @@ export const LIGHT_BOTTOM_SHEET_INDICATOR_COLOR = "#000000";
 export const LIGHT_CATEGORY_BACKGROUND_COLOR = "#f5f5f5";
 export const LIGHT_CHAT_LiST_ITEM_RIPPLE = "rgba(0, 0, 0, 0.1)";
 export const LIGHT_LINE_COLOR = "#e0e0e0";
-export const LIGHT_MESSAGE_BACKGROUND_COLOR = "#eaeaea";
+export const LIGHT_MESSAGE_BACKGROUND_COLOR = "#f5f5f5";
 export const LIGHT_MY_MESSAGE_BACKGROUND_COLOR = "#ffa73c";
 
 export const DARK_BACKGROUND = "#000000";
@@ -28,8 +29,9 @@ export const DARK_PRIMARY_BUTTON_TEXT_COLOR = "#ffffff";
 export const DARK_HIGHLIGHT_COLOR = "#ffa73c";
 export const DARK_TEXT_INPUT_BORDER_COLOR = "#ffffff";
 export const DARK_TEXT_INPUT_FONT_COLOR = "#ffffff";
-export const DARK_HEADER_COLOR = "#213a61";
-export const DARK_BOTTOM_TAB_BAR_COLOR = "#171717";
+export const DARK_HEADER_COLOR = "#000000";
+export const DARK_HEADER_BORDER_COLOR = "#3d3d3d";
+export const DARK_BOTTOM_TAB_BAR_COLOR = "#000000";
 export const DARK_BOTTOM_TAB_BAR_ACTIVE_COLOR = "#ffa73c";
 export const DARK_BOTTOM_TAB_BAR_INACTIVE_COLOR = "#ffffff";
 export const DARK_ICON_COLOR = "#ffffff";
@@ -56,6 +58,7 @@ export const LIGHT_THEME = {
     textInputBorderColor: LIGHT_TEXT_INPUT_BORDER_COLOR,
     textInputFontColor: LIGHT_TEXT_INPUT_FONT_COLOR,
     header: LIGHT_HEADER_COLOR,
+    headerBorderColor: LIGHT_HEADER_BORDER_COLOR,
     bottomTabBar: LIGHT_BOTTOM_TAB_BAR_COLOR,
     bottomTabBarActive: LIGHT_BOTTOM_TAB_BAR_ACTIVE_COLOR,
     bottomTabBarInactive: LIGHT_BOTTOM_TAB_BAR_INACTIVE_COLOR,
@@ -85,6 +88,7 @@ export const DARK_THEME = {
     textInputBorderColor: DARK_TEXT_INPUT_BORDER_COLOR,
     textInputFontColor: DARK_TEXT_INPUT_FONT_COLOR,
     header: DARK_HEADER_COLOR,
+    headerBorderColor: DARK_HEADER_BORDER_COLOR,
     bottomTabBar: DARK_BOTTOM_TAB_BAR_COLOR,
     bottomTabBarActive: DARK_BOTTOM_TAB_BAR_ACTIVE_COLOR,
     bottomTabBarInactive: DARK_BOTTOM_TAB_BAR_INACTIVE_COLOR,

@@ -6,7 +6,7 @@ export interface IUser {
   role: "user" | "seller" | "admin";
 }
 
-export interface IService {
+export interface IGig {
   id: string;
   name: string;
   description: string;

@@ -66,6 +66,7 @@ const Chat = () => {
 
 const Header = () => {
   const router = useRouter();
+  const mode = useMode();
 
   const { slug } = useSearchParams<{ slug: string }>();
 
@@ -75,17 +76,21 @@ const Header = () => {
     <View
       style={[
         styles.header,
-        { backgroundColor: themes[useMode()].colors.header },
+        {
+          backgroundColor: themes[mode].colors.header,
+          borderBottomColor: themes[mode].colors.headerBorderColor,
+          borderBottomWidth: 1,
+        },
       ]}
     >
       <AntDesign
         name="arrowleft"
         size={24}
-        color="white"
+        color={themes[mode].colors.iconColor}
         onPress={() => router.back()}
       />
 
-      <Typography variant="h3" style={{ marginLeft: 10, color: "white" }}>
+      <Typography variant="h3" style={{ marginLeft: 10 }}>
         {chat?.user.name}
       </Typography>
     </View>
@@ -112,7 +117,7 @@ const InputBox = () => {
         style={[
           styles.sendIcon,
           {
-            backgroundColor: themes[useMode()].colors.header,
+            backgroundColor: themes[useMode()].colors.highlight,
           },
         ]}
       />

@@ -37,7 +37,7 @@ const ChatListItem = (props: IChatListItem) => {
         style={[
           styles.container,
           {
-            borderBottomWidth: isLast ? 0 : 1,
+            // borderBottomWidth: isLast ? 0 : 1,
             borderBottomColor: themes[mode].colors.chatListItemBorder,
           },
         ]}
@@ -45,19 +45,19 @@ const ChatListItem = (props: IChatListItem) => {
         <Avatar uri={chat.user.avatar} size={48} />
 
         <View style={styles.center}>
-          <Typography variant='h3' textProps={{ numberOfLines: 1 }}>
+          <Typography variant="h3" textProps={{ numberOfLines: 1 }}>
             {chat.user.name}
           </Typography>
 
           <View style={{ height: 5 }} />
 
-          <Typography variant='body1' textProps={{ numberOfLines: 1 }}>
+          <Typography variant="body1" textProps={{ numberOfLines: 1 }}>
             {chat.lastMessage.text}
           </Typography>
         </View>
 
         <View style={styles.right}>
-          <Typography variant='body2' textProps={{ numberOfLines: 1 }}>
+          <Typography variant="body2" textProps={{ numberOfLines: 1 }}>
             {dayjs(chat.lastMessage.createdAt).fromNow()}
           </Typography>
         </View>

@@ -3,15 +3,15 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import Typography from "./Typography";
 import { useRouter } from "expo-router";
-import { IService } from "../types";
+import { IGig } from "../types";
 
-type ServiceItemProps = {
+type GigItemProps = {
   isLastItem: boolean;
-  service: IService;
+  gig: IGig;
 };
 
-const ServiceListItem = (props: ServiceItemProps) => {
-  const { service, isLastItem } = props;
+const GigListItem = (props: GigItemProps) => {
+  const { gig, isLastItem } = props;
 
   const router = useRouter();
 
@@ -24,12 +24,12 @@ const ServiceListItem = (props: ServiceItemProps) => {
         },
       ]}
       onPress={() => {
-        router.push(`/services/${service.id}`);
+        router.push(`/gigs/${gig.id}`);
       }}
     >
       <Image
         source={{
-          uri: service.thumbnail,
+          uri: gig.thumbnail,
         }}
         style={styles.thumbnail}
       />
@@ -42,36 +42,35 @@ const ServiceListItem = (props: ServiceItemProps) => {
           }}
         >
           <Typography
-            variant='h4'
+            variant="h4"
             textProps={{
               numberOfLines: 2,
             }}
           >
-            {service.name}
+            {gig.name}
           </Typography>
 
           <View style={styles.ratingContainer}>
-            <AntDesign name='star' size={12} color='#ffa73c' />
+            <AntDesign name="star" size={12} color="#ffa73c" />
 
-            <Typography variant='body2' style={{ marginLeft: 5 }}>
-              {service.rating}
+            <Typography variant="body2" style={{ marginLeft: 5 }}>
+              {gig.rating}
             </Typography>
           </View>
         </View>
 
         <View style={{ height: 5 }} />
 
-        <Typography variant='body2'>
-          {service.categories.name} &bull; {service.distance} km away &bull; ₹{" "}
-          {service.startingPrice} starting price &bull; {service.reviews.length}{" "}
-          reviews
+        <Typography variant="body2">
+          {gig.categories.name} &bull; {gig.distance} km away &bull; ₹{" "}
+          {gig.startingPrice} starting price &bull; {gig.reviews.length} reviews
         </Typography>
       </View>
     </Pressable>
   );
 };
 
-export default ServiceListItem;
+export default GigListItem;
 
 const styles = StyleSheet.create({
   container: {

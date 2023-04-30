@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
@@ -35,7 +35,14 @@ export const userRegister = createAsyncThunk(
     try {
       const { displayName, email, password } = userData;
 
-      if(!displayName || !email || !password || !displayName.trim() || !email.trim() || !password.trim()) {
+      if (
+        !displayName ||
+        !email ||
+        !password ||
+        !displayName.trim() ||
+        !email.trim() ||
+        !password.trim()
+      ) {
         throw new Error("Please fill all fields");
       }
 
@@ -55,9 +62,7 @@ export const userRegister = createAsyncThunk(
         displayName,
         email: userCredential.user.email,
         role: "user",
-        photoURL: `https://api.dicebear.com/6.x/fun-emoji/svg?seed=${displayName.trim()}-${
-          userCredential.user.email
-        }`,
+        photoURL: `https://api.dicebear.com/6.x/fun-emoji/png?seed=${userCredential.user.email}`,
       });
 
       const user = await getDoc(userRef);
@@ -80,8 +85,8 @@ export const userLogin = createAsyncThunk(
   ) => {
     try {
       const { email, password } = userData;
-      
-      if(!email || !password || !email.trim() || !password.trim()) {
+
+      if (!email || !password || !email.trim() || !password.trim()) {
         throw new Error("Please fill all fields");
       }
 
@@ -108,8 +113,6 @@ export const userLogin = createAsyncThunk(
 
 export const userLogout = createAsyncThunk("auth/logout", async () => {
   try {
-    console.log("User signed out");
-
     await signOut(auth);
   } catch (error) {
     console.log(error);

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import React from "react";
 import useMode from "../../../hooks/useMode";
 import themes from "../../../constants/themes";
@@ -33,16 +33,10 @@ const Profile = () => {
         },
       ]}
     >
-      {!user ? (
-        <View></View>
-      ) : (
+      {!user ? null : (
         <>
           <View style={styles.header}>
-            <Avatar
-              // uri={user.photoURL}
-              uri={"https://avatars.githubusercontent.com/u/48843448?v=4"}
-              size={128}
-            />
+            <Avatar uri={user.photoURL} size={128} />
 
             <View style={{ height: 10 }} />
 
@@ -75,7 +69,39 @@ const Profile = () => {
             }}
           />
 
-          <View style={styles.body}></View>
+          <View style={styles.body}>
+            <Typography variant="h3">Options</Typography>
+
+            <View style={{ height: 20 }} />
+
+            <Pressable
+              style={styles.options}
+              onPress={() => router.push("/become-seller")}
+            >
+              <Typography variant="body1">Become a seller</Typography>
+            </Pressable>
+
+            <View style={{ height: 10 }} />
+
+            <Pressable
+              style={styles.options}
+              onPress={() => router.push("/gigs/create-gig")}
+            >
+              <Typography variant="body1">Create a Gig</Typography>
+            </Pressable>
+
+            <View style={{ height: 10 }} />
+
+            <Pressable style={styles.options}>
+              <Typography variant="body1">Edit Profile</Typography>
+            </Pressable>
+
+            <View style={{ height: 10 }} />
+
+            <Pressable style={styles.options}>
+              <Typography variant="body1">Change Password</Typography>
+            </Pressable>
+          </View>
         </>
       )}
     </ScrollView>
@@ -96,5 +122,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
 
-  body: {},
+  body: {
+    padding: 10,
+  },
+
+  options: {},
 });

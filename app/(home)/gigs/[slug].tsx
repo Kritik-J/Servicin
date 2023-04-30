@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  Image,
-  StatusBar as RNStatusBar,
-} from "react-native";
+import { StyleSheet, View, ScrollView, Image, StatusBar } from "react-native";
 import React from "react";
 import useMode from "../../../hooks/useMode";
 import themes from "../../../constants/themes";
@@ -12,15 +6,15 @@ import Typography from "../../../components/Typography";
 import { useRouter, useSearchParams } from "expo-router";
 import services from "../../../assets/data/services.json";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
-import { IService } from "../../../types";
+import { IGig } from "../../../types";
 
-const Service = () => {
+const Gig = () => {
   const mode = useMode();
   const { slug } = useSearchParams<{ slug: string }>();
 
   const router = useRouter();
 
-  const service = services.find((service) => service.id === slug) as IService;
+  const gig = services.find((gig) => gig.id === slug) as IGig;
 
   const goBack = () => {
     router.back();
@@ -34,7 +28,7 @@ const Service = () => {
       ]}
     >
       <View>
-        <Image source={{ uri: service.thumbnail }} style={styles.thumbnail} />
+        <Image source={{ uri: gig.thumbnail }} style={styles.thumbnail} />
 
         <AntDesign
           name="arrowleft"
@@ -46,17 +40,17 @@ const Service = () => {
 
       <ScrollView>
         <View style={{ padding: 10 }}>
-          <Typography variant="h2">{service.name}</Typography>
+          <Typography variant="h2">{gig.name}</Typography>
 
           <View style={{ height: 15 }} />
 
-          <Typography variant="h4">{service.description}</Typography>
+          <Typography variant="h4">{gig.description}</Typography>
 
           <View style={{ height: 10 }} />
 
           <Typography variant="body1">
-            {service.categories.name} &bull; {service.distance} km away &bull;
-            starting from ${service.startingPrice}
+            {gig.categories.name} &bull; {gig.distance} km away &bull; starting
+            from ${gig.startingPrice}
           </Typography>
 
           <View style={{ height: 10 }} />
@@ -70,7 +64,7 @@ const Service = () => {
               }}
             />
 
-            <Typography variant="body1">{service.address}</Typography>
+            <Typography variant="body1">{gig.address}</Typography>
           </View>
         </View>
 
@@ -193,7 +187,7 @@ const Options = () => {
   );
 };
 
-export default Service;
+export default Gig;
 
 const styles = StyleSheet.create({
   container: {
@@ -208,7 +202,7 @@ const styles = StyleSheet.create({
 
   backButton: {
     position: "absolute",
-    top: (RNStatusBar.currentHeight as number) + 10,
+    top: (StatusBar.currentHeight as number) + 10,
     left: 20,
     backgroundColor: "#eaf2ff",
     padding: 10,

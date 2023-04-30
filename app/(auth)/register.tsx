@@ -46,32 +46,29 @@ const Register = () => {
         },
       ]}
     >
-      <Typography variant='h1'>Welcome Back</Typography>
+      <Typography variant="h3">Welcome Back</Typography>
 
       <View style={{ height: 10 }} />
 
-      <Typography variant='h3'>
-        Create an account to continue to your account
-      </Typography>
+      <Typography variant="h1">Register With</Typography>
 
       <View style={{ height: 30 }} />
 
-      <FormInput placeholder='Name' value={name} onChangeText={setName} />
+      <FormInput placeholder="Name" value={name} onChangeText={setName} />
 
       <View style={{ height: 10 }} />
 
       <FormInput
-        placeholder='Email Address'
+        placeholder="Email Address"
         value={email}
         onChangeText={setEmail}
-        keyboardType='email-address'
         inputProps={{ autoCapitalize: "none" }}
       />
 
       <View style={{ height: 10 }} />
 
       <FormInput
-        placeholder='Password'
+        placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry={!showPassword}
@@ -91,7 +88,7 @@ const Register = () => {
       <View style={{ height: 20 }} />
 
       <Button
-        title='Register'
+        title="Register"
         onPress={handleRegister}
         loading={isLoading}
         borderRadius={30}
@@ -100,15 +97,15 @@ const Register = () => {
       <View style={{ height: 40 }} />
 
       <Typography
-        variant='body1'
+        variant="body1"
         style={{
           textAlign: "center",
         }}
       >
         Already have an account?{" "}
-        <Link href='/login'>
+        <Link href="/login">
           <Typography
-            variant='body1'
+            variant="body1"
             style={{ color: themes[mode].colors.highlight }}
           >
             Login
@@ -119,24 +116,24 @@ const Register = () => {
       <View style={{ height: 20 }} />
 
       <Typography
-        variant='body1'
+        variant="body1"
         style={{
           textAlign: "center",
         }}
       >
         By registering, you agree to our{" "}
-        <Link href='/terms'>
+        <Link href="/terms">
           <Typography
-            variant='body1'
+            variant="body1"
             style={{ color: themes[mode].colors.highlight }}
           >
             Terms of Service
           </Typography>
         </Link>{" "}
         and{" "}
-        <Link href='/privacy'>
+        <Link href="/privacy">
           <Typography
-            variant='body1'
+            variant="body1"
             style={{ color: themes[mode].colors.highlight }}
           >
             Privacy Policy
@@ -154,5 +151,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     paddingTop: (StatusBar.currentHeight as number) + 10,
+    justifyContent: "center",
   },
 });

@@ -3,7 +3,7 @@ import themes from "../../../constants/themes";
 import useMode from "../../../hooks/useMode";
 import Typography from "../../../components/Typography";
 import CategoriesList from "../../../components/CategoriesList";
-import ServiceListItem from "../../../components/ServiceListItem";
+import GigListItem from "../../../components/GigListItem";
 import services from "../../../assets/data/services.json";
 
 export default function Home() {
@@ -39,12 +39,12 @@ export default function Home() {
         variant="h3"
         style={{ paddingHorizontal: 10, color: themes[mode].colors.highlight }}
       >
-        Top Services
+        Top Gigs
       </Typography>
 
       <View style={{ height: 10 }} />
 
-      <ServicesList />
+      <GigsList />
 
       <View style={{ height: 10 }} />
 
@@ -52,17 +52,17 @@ export default function Home() {
         variant="h3"
         style={{ paddingHorizontal: 10, color: themes[mode].colors.highlight }}
       >
-        Recommended Services
+        Recommended Gigs
       </Typography>
 
       <View style={{ height: 10 }} />
 
-      <ServicesList />
+      <GigsList />
     </ScrollView>
   );
 }
 
-const ServicesList = () => {
+const GigsList = () => {
   return (
     <FlatList
       data={services}
@@ -70,8 +70,8 @@ const ServicesList = () => {
       contentContainerStyle={styles.services}
       showsHorizontalScrollIndicator={false}
       renderItem={({ item, index }) => (
-        <ServiceListItem
-          service={item}
+        <GigListItem
+          gig={item}
           key={index}
           isLastItem={index === services.length - 1}
         />

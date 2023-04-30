@@ -44,26 +44,25 @@ const Login = () => {
         },
       ]}
     >
-      <Typography variant='h1'>Welcome Back</Typography>
+      <Typography variant="h3">Welcome Back</Typography>
 
       <View style={{ height: 10 }} />
 
-      <Typography variant='h3'>Login to continue to your account</Typography>
+      <Typography variant="h1">Login With</Typography>
 
       <View style={{ height: 30 }} />
 
       <FormInput
-        placeholder='Email Address'
+        placeholder="Email Address"
         value={email}
         onChangeText={setEmail}
-        keyboardType='email-address'
         inputProps={{ autoCapitalize: "none" }}
       />
 
       <View style={{ height: 10 }} />
 
       <FormInput
-        placeholder='Password'
+        placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry={!showPassword}
@@ -82,9 +81,9 @@ const Login = () => {
 
       <View style={{ height: 10 }} />
 
-      <Link href='/forgot-password' style={{ alignSelf: "flex-end" }}>
+      <Link href="/forgot-password" style={{ alignSelf: "flex-end" }}>
         <Typography
-          variant='body1'
+          variant="body1"
           style={{
             color: themes[mode].colors.highlight,
           }}
@@ -96,7 +95,7 @@ const Login = () => {
       <View style={{ height: 20 }} />
 
       <Button
-        title='Login'
+        title="Login"
         onPress={handleLogin}
         loading={isLoading}
         borderRadius={30}
@@ -105,15 +104,15 @@ const Login = () => {
       <View style={{ height: 40 }} />
 
       <Typography
-        variant='body1'
+        variant="body1"
         style={{
           textAlign: "center",
         }}
       >
         Don't have an account?{" "}
-        <Link href='/register'>
+        <Link href="/register">
           <Typography
-            variant='body1'
+            variant="body1"
             style={{ color: themes[mode].colors.highlight }}
           >
             Register
@@ -133,5 +132,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     paddingTop: (StatusBar.currentHeight as number) + 10,
+    justifyContent: "center",
   },
 });

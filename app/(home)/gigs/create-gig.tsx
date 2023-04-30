@@ -1,19 +1,19 @@
-import { ScrollView, StatusBar, StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, View } from "react-native";
 import React from "react";
-import themes from "../../constants/themes";
-import useMode from "../../hooks/useMode";
+import themes from "../../../constants/themes";
+import useMode from "../../../hooks/useMode";
+import Typography from "../../../components/Typography";
 import { AntDesign } from "@expo/vector-icons";
+import FormInput from "../../../components/FormInput";
 import { useRouter } from "expo-router";
-import Typography from "../../components/Typography";
-import FormInput from "../../components/FormInput";
 
-const BecomeSeller = () => {
-  const router = useRouter();
+const CreateGig = () => {
   const mode = useMode();
+  const router = useRouter();
 
   return (
-    <ScrollView
-      contentContainerStyle={[
+    <View
+      style={[
         styles.container,
         { backgroundColor: themes[mode].colors.background },
       ]}
@@ -28,13 +28,17 @@ const BecomeSeller = () => {
       <View style={{ height: 10 }} />
 
       <Typography variant="h2" style={{ color: themes[mode].colors.text }}>
-        Become a Seller
+        Create a Gig
       </Typography>
-    </ScrollView>
+
+      <View style={{ height: 30 }} />
+
+      <FormInput placeholder="Title" value="" onChangeText={() => {}} />
+    </View>
   );
 };
 
-export default BecomeSeller;
+export default CreateGig;
 
 const styles = StyleSheet.create({
   container: {

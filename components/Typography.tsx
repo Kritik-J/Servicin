@@ -1,13 +1,13 @@
 import useMode from "../hooks/useMode";
 import React from "react";
-import { Text } from "react-native";
+import { Text, TextProps } from "react-native";
 import themes from "../constants/themes";
 
 type TypographyProps = {
   variant: "h1" | "h2" | "h3" | "h4" | "body1" | "body2";
   children: React.ReactNode;
-  style?: any;
-  textProps?: any;
+  style?: any; // TODO: Fix this any type later
+  textProps?: TextProps;
 };
 
 const Typography = ({
