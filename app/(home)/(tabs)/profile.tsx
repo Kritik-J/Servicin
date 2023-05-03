@@ -36,29 +36,37 @@ const Profile = () => {
       {!user ? null : (
         <>
           <View style={styles.header}>
-            <Avatar uri={user.photoURL} size={128} />
-
-            <View style={{ height: 10 }} />
-
-            <Typography
-              variant="h2"
-              style={{ color: themes[mode].colors.text }}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                width: "100%",
+              }}
             >
-              {user.displayName}
-            </Typography>
+              <Avatar uri={user.photoURL} size={64} />
 
-            <View style={{ height: 5 }} />
+              <View
+                style={{
+                  marginLeft: 20,
+                }}
+              >
+                <Typography
+                  variant="h2"
+                  style={{ color: themes[mode].colors.text }}
+                >
+                  {user.displayName}
+                </Typography>
 
-            <Typography
-              variant="h4"
-              style={{ color: themes[mode].colors.text }}
-            >
-              {user.email}
-            </Typography>
+                <View style={{ height: 5 }} />
 
-            <View style={{ height: 10 }} />
-
-            <Button onPress={handleLogout} title="Logout" />
+                <Typography
+                  variant="h4"
+                  style={{ color: themes[mode].colors.text }}
+                >
+                  {user.email}
+                </Typography>
+              </View>
+            </View>
           </View>
 
           <View
@@ -70,7 +78,7 @@ const Profile = () => {
           />
 
           <View style={styles.body}>
-            <Typography variant="h3">Options</Typography>
+            <Typography variant="h2">Options</Typography>
 
             <View style={{ height: 20 }} />
 
@@ -78,7 +86,7 @@ const Profile = () => {
               style={styles.options}
               onPress={() => router.push("/become-seller")}
             >
-              <Typography variant="body1">Become a seller</Typography>
+              <Typography variant="h4">Become a seller</Typography>
             </Pressable>
 
             <View style={{ height: 10 }} />
@@ -87,20 +95,28 @@ const Profile = () => {
               style={styles.options}
               onPress={() => router.push("/gigs/create-gig")}
             >
-              <Typography variant="body1">Create a Gig</Typography>
+              <Typography variant="h4">Create a Gig</Typography>
             </Pressable>
 
             <View style={{ height: 10 }} />
 
             <Pressable style={styles.options}>
-              <Typography variant="body1">Edit Profile</Typography>
+              <Typography variant="h4">Edit Profile</Typography>
             </Pressable>
 
             <View style={{ height: 10 }} />
 
             <Pressable style={styles.options}>
-              <Typography variant="body1">Change Password</Typography>
+              <Typography variant="h4">Change Password</Typography>
             </Pressable>
+
+            <View style={{ height: 20 }} />
+
+            <Button
+              onPress={handleLogout}
+              title="Logout"
+              buttonStyle={{ height: 42 }}
+            />
           </View>
         </>
       )}
@@ -118,7 +134,7 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     justifyContent: "center",
-    padding: 10,
+    paddingHorizontal: 10,
     paddingVertical: 20,
   },
 

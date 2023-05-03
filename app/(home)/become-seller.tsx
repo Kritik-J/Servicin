@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import Typography from "../../components/Typography";
 import FormInput from "../../components/FormInput";
+import Button from "../../components/Button";
 
 const BecomeSeller = () => {
   const router = useRouter();
@@ -30,6 +31,82 @@ const BecomeSeller = () => {
       <Typography variant="h2" style={{ color: themes[mode].colors.text }}>
         Become a Seller
       </Typography>
+
+      <View style={{ height: 30 }} />
+
+      <FormInput
+        placeholder="Enter your full name"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your email"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your phone"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your address"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your city"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your state"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your country"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 10 }} />
+
+      <FormInput
+        placeholder="Enter your zip"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 20 }} />
+
+      <FormInput
+        placeholder="Enter your PAN number"
+        value=""
+        onChangeText={() => {}}
+      />
+
+      <View style={{ height: 20 }} />
+
+      <Button title="Become a Seller" onPress={() => {}} />
     </ScrollView>
   );
 };
