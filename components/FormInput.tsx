@@ -2,6 +2,7 @@ import { TextInput, View } from "react-native";
 import React from "react";
 import useMode from "../hooks/useMode";
 import themes from "../constants/themes";
+import Typography from "./Typography";
 
 type FormInputProps = {
   placeholder?: string;
@@ -23,7 +24,8 @@ type FormInputProps = {
   secureTextEntry?: boolean;
   keyboardType?: any;
   inputProps?: any;
-  status?: "error" | "success" | "warning" | "info";
+  status?: "error" | "success" | "warning" | "info" | "";
+  hint?: string;
 };
 
 const FormInput = (Props: FormInputProps) => {
@@ -50,6 +52,7 @@ const FormInput = (Props: FormInputProps) => {
     keyboardType = "default",
     inputProps,
     status,
+    hint,
   } = Props;
 
   const statusStyle = (status: "error" | "success" | "warning" | "info") => {
@@ -68,43 +71,54 @@ const FormInput = (Props: FormInputProps) => {
   };
 
   return (
-    <View
-      style={{
-        borderRadius,
-        alignItems: "center",
-        flexDirection: "row",
-        borderWidth: borderWidth,
-        borderColor: status ? statusStyle(status) : borderColor,
-        backgroundColor,
-        ...containerStyle,
-      }}
-    >
-      {leadingIcon && leadingIcon}
-
-      <TextInput
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor}
+    <>
+      <View
         style={{
-          padding: 10,
-          flex: 1,
-          fontSize,
-          fontWeight,
-          // color: status ? statusStyle(status) : fontColor,
-          color: fontColor,
-          ...inputStyle,
+          borderRadius,
+          alignItems: "center",
+          flexDirection: "row",
+          borderWidth: borderWidth,
+          borderColor: status ? statusStyle(status) : borderColor,
+          backgroundColor,
+          ...containerStyle,
         }}
-        value={value}
-        onChangeText={(text: string) => {
-          onChangeText && onChangeText(text);
-        }}
-        onKeyPress={onKeyPress}
-        secureTextEntry={secureTextEntry}
-        keyboardType={keyboardType}
-        {...inputProps}
-      />
+      >
+        {leadingIcon && leadingIcon}
 
-      {trailingIcon && trailingIcon}
-    </View>
+        <TextInput
+          placeholder={placeholder}
+          placeholderTextColor={placeholderTextColor}
+          style={{
+            padding: 10,
+            flex: 1,
+            fontSize,
+            fontWeight,
+            // color: status ? statusStyle(status) : fontColor,
+            color: fontColor,
+            ...inputStyle,
+          }}
+          value={value}
+          onChangeText={(text: string) => {
+            onChangeText && onChangeText(text);
+          }}
+          onKeyPress={onKeyPress}
+          secureTextEntry={secureTextEntry}
+          keyboardType={keyboardType}
+          {...inputProps}
+        />
+
+        {trailingIcon && trailingIcon}
+      </View>
+
+      {status && hint && (
+        <Typography
+          variant="body2"
+          style={{ color: statusStyle(status), marginTop: 5 }}
+        >
+          {hint}
+        </Typography>
+      )}
+    </>
   );
 };
 

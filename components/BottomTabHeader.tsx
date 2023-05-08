@@ -3,6 +3,7 @@ import React from "react";
 import useMode from "../hooks/useMode";
 import themes, { DARK_MODE } from "../constants/themes";
 import { SearchIcon } from "./Svg";
+import { useRouter } from "expo-router";
 
 const BottomTabHeader = () => {
   const mode = useMode();
@@ -10,6 +11,8 @@ const BottomTabHeader = () => {
     mode === DARK_MODE
       ? require("../assets/images/logos/servicin-dark.png")
       : require("../assets/images/logos/servicin-light.png");
+
+  const router = useRouter();
 
   return (
     <View
@@ -24,7 +27,14 @@ const BottomTabHeader = () => {
     >
       <Image source={logo} style={styles.headerLogo} />
 
-      <SearchIcon width={24} height={24} fill={themes[mode].colors.iconColor} />
+      <SearchIcon
+        width={24}
+        height={24}
+        fill={themes[mode].colors.iconColor}
+        onPress={() => {
+          router.push("search");
+        }}
+      />
     </View>
   );
 };

@@ -7,6 +7,7 @@ import {
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { IUser } from "../types";
+import { firebaseError } from "../utils/error";
 
 type InitialState = {
   user: IUser | null;
@@ -62,14 +63,17 @@ export const userRegister = createAsyncThunk(
         displayName,
         email: userCredential.user.email,
         role: "user",
-        photoURL: `https://api.dicebear.com/6.x/fun-emoji/png?seed=${userCredential.user.email}`,
+        photoURL: `https://api.dicebear.com/6.x/shapes/png?seed=${userCredential.user.email}`,
       });
 
       const user = await getDoc(userRef);
 
       return user.data() as IUser;
-    } catch (error) {
-      return thunkAPI.rejectWithValue((error as Error)?.message as string);
+    } catch (error: any) {
+      // return thunkAPI.rejectWithValue((error as Error)?.message as string);
+      return thunkAPI.rejectWithValue(
+        error.code ? firebaseError(error) : error.message
+      );
     }
   }
 );
@@ -105,8 +109,11 @@ export const userLogin = createAsyncThunk(
       const user = await getDoc(userRef);
 
       return user.data() as IUser;
-    } catch (error) {
-      return thunkAPI.rejectWithValue((error as Error)?.message as string);
+    } catch (error: any) {
+      // return thunkAPI.rejectWithValue((error as Error)?.message as string);
+      return thunkAPI.rejectWithValue(
+        error.code ? firebaseError(error) : error.message
+      );
     }
   }
 );
@@ -115,7 +122,7 @@ export const userLogout = createAsyncThunk("auth/logout", async () => {
   try {
     await signOut(auth);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 

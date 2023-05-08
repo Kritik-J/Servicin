@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
-type ServiceItemProps = {
+type GigItemProps = {
   isLastItem: boolean;
-  service: {
+  gig: {
     id: string;
     name: string;
     address: string;
@@ -17,8 +18,9 @@ type ServiceItemProps = {
   };
 };
 
-const ServiceSearchItem = (props: ServiceItemProps) => {
-  const { service, isLastItem } = props;
+const gigSearchItem = (props: GigItemProps) => {
+  const { gig, isLastItem } = props;
+  const router = useRouter();
 
   return (
     <Pressable
@@ -28,10 +30,13 @@ const ServiceSearchItem = (props: ServiceItemProps) => {
           marginBottom: isLastItem ? 0 : 10,
         },
       ]}
+      onPress={() => {
+        router.push(`/gigs/${gig.id}`);
+      }}
     >
       <Image
         source={{
-          uri: service.thumbnail,
+          uri: gig.thumbnail,
         }}
         style={styles.thumbnail}
       />
@@ -44,31 +49,30 @@ const ServiceSearchItem = (props: ServiceItemProps) => {
           }}
         >
           <Text style={styles.title} numberOfLines={2}>
-            {service.name}
+            {gig.name}
           </Text>
 
           <View style={styles.ratingContainer}>
-            <AntDesign name='star' size={12} color='#ffa73c' />
-            <Text style={styles.rating}>{service.rating}</Text>
+            <AntDesign name="star" size={12} color="#ffa73c" />
+            <Text style={styles.rating}>{gig.rating}</Text>
           </View>
         </View>
 
         <Text style={styles.subtitle} numberOfLines={3}>
-          {service.categories.name} {service.distance} km away &bull; ₹{" "}
-          {service.startingPrice} starting price &bull; {service.reviews.length}{" "}
-          reviews
+          {gig.categories.name} {gig.distance} km away &bull; ₹{" "}
+          {gig.startingPrice} starting price &bull; {gig.reviews.length} reviews
         </Text>
       </View>
     </Pressable>
   );
 };
 
-export default ServiceSearchItem;
+export default gigSearchItem;
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginHorizontal: 20,
+    marginHorizontal: 10,
   },
 
   thumbnail: {

@@ -48,17 +48,23 @@ const Button = (props: ButtonProps) => {
       style={{
         height,
         width,
-        backgroundColor,
+        backgroundColor:
+          disabled || loading
+            ? themes[mode].colors.disabledButtonColor
+            : backgroundColor,
+
         borderRadius,
         borderWidth,
-        borderColor,
+        borderColor:
+          disabled || loading
+            ? themes[mode].colors.disabledButtonColor
+            : borderColor,
         justifyContent: "center",
         alignItems: "center",
-        opacity: disabled ? 0.85 : 1,
         ...buttonStyle,
       }}
       onPress={onPress}
-      disabled={disabled}
+      disabled={disabled || loading}
     >
       {loading ? (
         <ActivityIndicator size="small" color={spinnerColor} />

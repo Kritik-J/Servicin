@@ -12,6 +12,7 @@ export default function TabLayout() {
         <Stack.Screen name="gigs/[slug]" />
         <Stack.Screen name="gigs/create-gig" />
         <Stack.Screen name="chats/[slug]" />
+        <Stack.Screen name="search" />
         <Stack.Screen name="become-seller" />
       </Stack>
 

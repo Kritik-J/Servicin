@@ -4,7 +4,7 @@ import useMode from "../../../hooks/useMode";
 import Typography from "../../../components/Typography";
 import CategoriesList from "../../../components/CategoriesList";
 import GigListItem from "../../../components/GigListItem";
-import services from "../../../assets/data/services.json";
+import gigs from "../../../assets/data/services.json";
 
 export default function Home() {
   const mode = useMode();
@@ -65,15 +65,15 @@ export default function Home() {
 const GigsList = () => {
   return (
     <FlatList
-      data={services}
+      data={gigs}
       horizontal={true}
-      contentContainerStyle={styles.services}
+      contentContainerStyle={styles.gigs}
       showsHorizontalScrollIndicator={false}
       renderItem={({ item, index }) => (
         <GigListItem
           gig={item}
           key={index}
-          isLastItem={index === services.length - 1}
+          isLastItem={index === gigs.length - 1}
         />
       )}
     />
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  services: {
+  gigs: {
     paddingHorizontal: 10,
   },
 });

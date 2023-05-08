@@ -4,6 +4,7 @@ export const DARK_MODE = "dark";
 export const LIGHT_BACKGROUND = "#ffffff";
 export const LIGHT_TEXT = "#000000";
 export const LIGHT_PRIMARY_BUTTON_COLOR = "#ffa73c";
+export const LIGHT_DISABLED_BUTTON_COLOR = "#fab869";
 export const LIGHT_PRIMARY_BUTTON_TEXT_COLOR = "#ffffff";
 export const LIGHT_HIGHLIGHT_COLOR = "#ffa73c";
 export const LIGHT_TEXT_INPUT_BORDER_COLOR = "#000000";
@@ -25,6 +26,7 @@ export const LIGHT_MY_MESSAGE_BACKGROUND_COLOR = "#ffa73c";
 export const DARK_BACKGROUND = "#000000";
 export const DARK_TEXT = "#ffffff";
 export const DARK_PRIMARY_BUTTON_COLOR = "#ffa73c";
+export const DARK_DISABLED_BUTTON_COLOR = "#fab869";
 export const DARK_PRIMARY_BUTTON_TEXT_COLOR = "#ffffff";
 export const DARK_HIGHLIGHT_COLOR = "#ffa73c";
 export const DARK_TEXT_INPUT_BORDER_COLOR = "#ffffff";
@@ -54,6 +56,7 @@ export const LIGHT_THEME = {
     text: LIGHT_TEXT,
     highlight: LIGHT_HIGHLIGHT_COLOR,
     primaryButtonColor: LIGHT_PRIMARY_BUTTON_COLOR,
+    disabledButtonColor: LIGHT_DISABLED_BUTTON_COLOR,
     primaryButtonTextColor: LIGHT_PRIMARY_BUTTON_TEXT_COLOR,
     textInputBorderColor: LIGHT_TEXT_INPUT_BORDER_COLOR,
     textInputFontColor: LIGHT_TEXT_INPUT_FONT_COLOR,
@@ -84,6 +87,7 @@ export const DARK_THEME = {
     text: DARK_TEXT,
     highlight: DARK_HIGHLIGHT_COLOR,
     primaryButtonColor: DARK_PRIMARY_BUTTON_COLOR,
+    disabledButtonColor: DARK_DISABLED_BUTTON_COLOR,
     primaryButtonTextColor: DARK_PRIMARY_BUTTON_TEXT_COLOR,
     textInputBorderColor: DARK_TEXT_INPUT_BORDER_COLOR,
     textInputFontColor: DARK_TEXT_INPUT_FONT_COLOR,

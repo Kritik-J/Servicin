@@ -8,34 +8,75 @@ import { Octicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import Button from "../../components/Button";
 import { useAppDispatch } from "../../hooks/useReduce";
-import { userRegister } from "../../redux/authSlice";
+import { clearError, userRegister } from "../../redux/authSlice";
 import useAuth from "../../hooks/useAuth";
+import { checkEmail, checkLength, checkNull } from "../../utils/validators";
 
 const Register = () => {
   const mode = useMode();
+  const dispatch = useAppDispatch();
+  const { isLoading, error } = useAuth();
 
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [form, setForm] = React.useState({
+    displayName: "",
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = React.useState({
+    displayName: "",
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const dispatch = useAppDispatch();
-
-  const { isLoading, error } = useAuth();
+  const handleChange = (name: string, value: string) => {
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  };
 
   const handleRegister = () => {
-    dispatch(
-      userRegister({
-        displayName: name,
-        email,
-        password,
-      })
-    );
+    if (checkNull(form.displayName)) {
+      setErrors({ ...errors, displayName: "Name is required" });
+      return;
+    }
+
+    if (checkNull(form.email)) {
+      setErrors({ ...errors, email: "Email is required" });
+      return;
+    }
+
+    if (checkEmail(form.email)) {
+      setErrors({ ...errors, email: "Email is invalid" });
+      return;
+    }
+
+    if (checkNull(form.password)) {
+      setErrors({ ...errors, password: "Password is required" });
+      return;
+    }
+
+    if (checkLength(form.password, 8)) {
+      setErrors({
+        ...errors,
+        password: "Password must be at least 8 characters",
+      });
+      return;
+    }
+
+    dispatch(userRegister(form));
   };
+
+  React.useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        dispatch(clearError());
+      }, 5000);
+    }
+  }, [error]);
 
   return (
     <SafeAreaView
@@ -54,23 +95,31 @@ const Register = () => {
 
       <View style={{ height: 30 }} />
 
-      <FormInput placeholder="Name" value={name} onChangeText={setName} />
+      <FormInput
+        placeholder="Name"
+        value={form.displayName}
+        onChangeText={(value) => handleChange("displayName", value)}
+        status={errors.displayName ? "error" : ""}
+        hint={errors.displayName}
+      />
 
       <View style={{ height: 10 }} />
 
       <FormInput
         placeholder="Email Address"
-        value={email}
-        onChangeText={setEmail}
+        value={form.email}
+        onChangeText={(value) => handleChange("email", value)}
         inputProps={{ autoCapitalize: "none" }}
+        status={errors.email ? "error" : ""}
+        hint={errors.email}
       />
 
       <View style={{ height: 10 }} />
 
       <FormInput
         placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
+        value={form.password}
+        onChangeText={(value) => handleChange("password", value)}
         secureTextEntry={!showPassword}
         trailingIcon={
           <Octicons
@@ -83,6 +132,8 @@ const Register = () => {
             }}
           />
         }
+        status={errors.password ? "error" : ""}
+        hint={errors.password}
       />
 
       <View style={{ height: 20 }} />
@@ -92,7 +143,23 @@ const Register = () => {
         onPress={handleRegister}
         loading={isLoading}
         borderRadius={30}
+        disabled={
+          errors.displayName || errors.email || errors.password ? true : false
+        }
       />
+
+      {error && (
+        <Typography
+          variant="body1"
+          style={{
+            color: themes[mode].colors.errorColor,
+            textAlign: "center",
+            marginTop: 20,
+          }}
+        >
+          {error}
+        </Typography>
+      )}
 
       <View style={{ height: 40 }} />
 
@@ -103,7 +170,7 @@ const Register = () => {
         }}
       >
         Already have an account?{" "}
-        <Link href="/login">
+        <Link href="/">
           <Typography
             variant="body1"
             style={{ color: themes[mode].colors.highlight }}

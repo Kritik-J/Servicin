@@ -24,7 +24,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  initialRouteName: "(auth)",
 };
 
 export default function RootLayout() {
@@ -84,8 +84,10 @@ function RootLayoutNav() {
     const inAuthGroup = segments[0] === "(auth)";
 
     if (!isAuth && !inAuthGroup) {
-      router.replace("login");
-    } else if (isAuth && inAuthGroup) {
+      router.replace("(auth)");
+    }
+
+    if (isAuth && inAuthGroup) {
       router.replace("(home)");
     }
   }, [isAuth, segments]);
