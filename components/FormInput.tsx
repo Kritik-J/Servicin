@@ -36,7 +36,7 @@ const FormInput = (Props: FormInputProps) => {
     leadingIcon,
     trailingIcon,
     borderRadius = 5,
-    borderWidth = 1,
+    borderWidth = 1.5,
     borderColor = themes[mode].colors.textInputBorderColor,
     backgroundColor = "transparent",
     placeholderTextColor = "grey",

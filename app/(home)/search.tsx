@@ -32,6 +32,7 @@ const SearchScreen = () => {
       >
         <AntDesign
           name="arrowleft"
+          color={themes[mode].colors.iconColor}
           size={24}
           onPress={() => {
             router.back();
